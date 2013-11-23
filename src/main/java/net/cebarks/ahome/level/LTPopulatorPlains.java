@@ -14,7 +14,7 @@ public class LTPopulatorPlains extends LTPopulator {
 
 	@Override
 	public void generate(Tile[][] tiles, Random random) {
-		WeightedRandomizer<Tile> tr = new WeightedRandomizer<Tile>(new Object[] {
+		WeightedRandomizer<Tile> tr = new WeightedRandomizer<Tile>(random, new Object[] {
 			Tile.grass, 49, Tile.dirt, 1	
 		});
 		for (int x = 0; x < tiles.length; x++) {

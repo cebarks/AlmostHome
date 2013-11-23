@@ -13,7 +13,7 @@ public class LTPopulatorSwamp extends LTPopulator {
 
 	@Override
 	public void generate(Tile[][] tiles, Random random) {
-		WeightedRandomizer<Tile> wr = new WeightedRandomizer<Tile>(new Object[] {
+		WeightedRandomizer<Tile> wr = new WeightedRandomizer<Tile>(random, new Object[] {
 				Tile.grass, 2, Tile.water, 1
 		});
 		for (int x = 0; x < tiles.length; x++) {

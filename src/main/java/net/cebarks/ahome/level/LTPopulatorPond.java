@@ -19,4 +19,10 @@ public class LTPopulatorPond extends LTPopulator {
 			}
 		}
 	}
+	
+	@Override
+	public String toString() {
+		return "Pond";
+	}
 }
+
