@@ -91,7 +91,7 @@ public class Entity {
 
 	public boolean shouldDraw() {
 		if (!isDead() && (level.getCurrentLevelTile() == tile))
-			return true;;
+			return true;
 		return false;
 	}
 

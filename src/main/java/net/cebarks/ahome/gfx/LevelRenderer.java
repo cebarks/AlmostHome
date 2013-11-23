@@ -13,7 +13,7 @@ import net.cebarks.ahome.level.Level;
 import net.cebarks.ahome.level.LevelTile;
 import net.cebarks.ahome.level.tile.Tile;
 
-public class LevelRenderer{
+public class LevelRenderer {
 
 	private Level level;
 	private Graphics2D g;
