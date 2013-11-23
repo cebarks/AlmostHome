@@ -7,7 +7,6 @@ import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.util.HashMap;
 
-import net.cebarks.ahome.ImageHelper;
 import net.cebarks.ahome.entity.Entity;
 import net.cebarks.ahome.level.Level;
 import net.cebarks.ahome.level.LevelTile;

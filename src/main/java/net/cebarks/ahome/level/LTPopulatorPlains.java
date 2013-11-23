@@ -2,8 +2,8 @@ package net.cebarks.ahome.level;
 
 import java.util.Random;
 
-import net.cebarks.ahome.WeightedRandomizer;
 import net.cebarks.ahome.level.tile.Tile;
+import net.cebarks.ahome.util.WeightedRandomizer;
 
 public class LTPopulatorPlains extends LTPopulator {
 

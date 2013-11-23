@@ -1,4 +1,4 @@
-package net.cebarks.ahome;
+package net.cebarks.ahome.util;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;

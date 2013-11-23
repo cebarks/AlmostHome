@@ -1,9 +1,11 @@
-package net.cebarks.ahome;
+package net.cebarks.ahome.gfx;
 
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
+
+import net.cebarks.ahome.AlmostHome;
 
 public class ImageHelper {
 	public static BufferedImage loadImage(String image) {

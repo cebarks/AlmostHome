@@ -8,9 +8,9 @@ import java.util.ArrayList;
 import java.util.Random;
 
 import net.cebarks.ahome.AlmostHome;
-import net.cebarks.ahome.WeightedRandomizer;
 import net.cebarks.ahome.entity.Entity;
 import net.cebarks.ahome.entity.EntityPlayer;
+import net.cebarks.ahome.util.WeightedRandomizer;
 
 public class Level {
 

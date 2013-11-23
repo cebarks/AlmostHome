@@ -1,4 +1,4 @@
-package net.cebarks.ahome;
+package net.cebarks.ahome.util;
 
 import java.util.ArrayList;
 import java.util.Random;

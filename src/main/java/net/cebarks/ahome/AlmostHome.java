@@ -11,6 +11,9 @@ import javax.swing.JOptionPane;
 import net.cebarks.ahome.gfx.RenderEngine;
 import net.cebarks.ahome.gfx.SpriteSheet;
 import net.cebarks.ahome.level.Level;
+import net.cebarks.ahome.util.Input;
+import net.cebarks.ahome.util.Options;
+import net.cebarks.ahome.util.Version;
 
 public class AlmostHome extends Canvas implements Runnable {
 
