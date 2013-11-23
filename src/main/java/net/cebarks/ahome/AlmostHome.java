@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.Canvas;
 import java.awt.Dimension;
 import java.awt.event.KeyEvent;
+import java.util.ArrayList;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -12,6 +13,7 @@ import net.cebarks.ahome.gfx.RenderEngine;
 import net.cebarks.ahome.gfx.SpriteSheet;
 import net.cebarks.ahome.level.Level;
 import net.cebarks.ahome.util.Input;
+import net.cebarks.ahome.util.InputHandler;
 import net.cebarks.ahome.util.Options;
 import net.cebarks.ahome.util.Version;
 
@@ -72,7 +74,7 @@ public class AlmostHome extends Canvas implements Runnable {
 		input = new Input();
 
 		frame.addKeyListener(input);
-		
+
 		frame.requestFocus();
 	}
 
@@ -89,17 +91,17 @@ public class AlmostHome extends Canvas implements Runnable {
 		debug = Boolean.parseBoolean(JOptionPane.showInputDialog("Debug mode?"));
 
 		long t = System.currentTimeMillis();
-		
+
 		level = new Level(this, "anten");
 
 		System.out.println("level generated in " + (System.currentTimeMillis() - t) + "ms");
 
 		renderEngine = new RenderEngine(this);
 		new Thread(renderEngine).start();
-		
+
 		long lastTime = System.nanoTime();
 		double nsPerTick = 1000000000D / 50D;
-		
+
 		int ticks = 0;
 
 		long lastTimer = System.currentTimeMillis();
@@ -143,13 +145,13 @@ public class AlmostHome extends Canvas implements Runnable {
 		if (tickCount % 25 == 0 && shouldGarbageCollect()) {
 			System.gc();
 		}
-		
-		if(!frame.hasFocus())
+
+		if (!frame.hasFocus())
 			requestFocus();
 
 		tickCount++;
 	}
-	
+
 	public void sleep(long ms, int ns) {
 		try {
 			Thread.sleep(ms, ns);
@@ -181,6 +183,18 @@ public class AlmostHome extends Canvas implements Runnable {
 			level.getPlayer().xToMove -= 2 * level.getPlayer().moveSpeed;
 		if (input.isKeyDown(KeyEvent.VK_D))
 			level.getPlayer().xToMove += 2 * level.getPlayer().moveSpeed;
+
+		for (InputHandler ih : getInputHandlers()) {
+			ih.handleInput();
+		}
+	}
+
+	public void registerInputHandler(InputHandler ih) {
+		input.registerInputHandler(ih);
+	}
+
+	public ArrayList<InputHandler> getInputHandlers() {
+		return input.getInputHandlers();
 	}
 
 	public RenderEngine getRenderer() {
@@ -226,11 +240,11 @@ public class AlmostHome extends Canvas implements Runnable {
 	public void setDebug(boolean debug) {
 		this.debug = debug;
 	}
-	
+
 	public Level getLevel() {
 		return level;
 	}
-	
+
 	public boolean isPlaying() {
 		return playing;
 	}
