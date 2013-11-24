@@ -1,5 +1,6 @@
 package net.cebarks.ahome.level.tile;
 
+import java.awt.Color;
 import java.util.HashMap;
 
 public class Tile {
@@ -39,8 +40,7 @@ public class Tile {
 	}
 
 	/**
-	 * 
-	 * 	Returns the Tile object associated with the provided id
+	 * Returns the Tile object associated with the provided id
 	 * 
 	 * @param id of unknown tile
 	 * @return the Tile object associated with provided id
@@ -53,11 +53,24 @@ public class Tile {
 		return null;
 	}
 
+	/**
+	 * 
+	 * @return 
+	 */
 	public boolean isSolid() {
 		return solid;
 	}
 
 	public void setSolid(boolean solid) {
 		this.solid = solid;
+	}
+
+	/**
+	 * Returns the color for this tile
+	 * 
+	 * @return color for tile on a map
+	 */
+	public Color getColor() {
+		return Color.WHITE;
 	}
 }

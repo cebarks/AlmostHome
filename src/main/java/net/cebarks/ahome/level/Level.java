@@ -30,7 +30,6 @@ public class Level {
 		seed = ssed.hashCode();
 		System.out.println("Seed: " + seed);
 		random = new Random(seed);
-
 		player = new EntityPlayer(this, 240, 240);
 
 		generate();
