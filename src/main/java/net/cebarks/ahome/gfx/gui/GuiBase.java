@@ -2,6 +2,7 @@ package net.cebarks.ahome.gfx.gui;
 
 import java.awt.Graphics2D;
 
+import net.cebarks.ahome.AlmostHome;
 import net.cebarks.ahome.level.Level;
 
 public class GuiBase {
@@ -9,6 +10,7 @@ public class GuiBase {
 	private int id;
 	protected Level level;
 	protected Graphics2D g;
+	protected AlmostHome game;
 	
 	protected int minX;
 	protected int maxX;
@@ -18,6 +20,7 @@ public class GuiBase {
 	public GuiBase(int id, Level level) {
 		this.id = id;
 		this.level = level;
+		this.game = level.getGame();
 	}
 	
 	public void render() {

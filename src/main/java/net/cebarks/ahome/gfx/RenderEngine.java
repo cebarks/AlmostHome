@@ -8,24 +8,28 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 import java.awt.image.BufferStrategy;
+import java.util.ArrayList;
 
 import net.cebarks.ahome.AlmostHome;
+import net.cebarks.ahome.gfx.gui.GuiBase;
 import net.cebarks.ahome.gfx.gui.GuiDebug;
 import net.cebarks.ahome.gfx.gui.GuiInGame;
+import net.cebarks.ahome.gfx.gui.GuiWorldMap;
 
 public class RenderEngine implements Runnable {
 
 	private LevelRenderer levelRenderer;
-	private GuiInGame gameGui;
-	private GuiDebug debugGui;
+	private ArrayList<GuiBase> GUIs;
 	private AlmostHome game;
 	private int frames = 0;
 
 	public RenderEngine(AlmostHome a) {
 		this.game = a;
+		GUIs = new ArrayList<GuiBase>();
 		levelRenderer = new LevelRenderer(a.getLevel());
-		gameGui = new GuiInGame(a.getLevel());
-		debugGui = new GuiDebug(a.getLevel());
+		GUIs.add(new GuiInGame(a.getLevel()));
+		GUIs.add(new GuiDebug(a.getLevel()));
+		GUIs.add(new GuiWorldMap(a.getLevel()));
 	}
 
 	public void run() {
@@ -37,17 +41,17 @@ public class RenderEngine implements Runnable {
 		while (true) {
 			long now = System.currentTimeMillis();
 			lastTime = now;
-			
+
 			render();
 			frames++;
 
 			int timeDiff = (int) (System.currentTimeMillis() - lastTime);
-			
+
 			int tts = period - timeDiff;
-			
-			if(tts <= 0)
+
+			if (tts <= 0)
 				tts = 1;
-			
+
 			sleep(tts);
 		}
 	}
@@ -79,19 +83,19 @@ public class RenderEngine implements Runnable {
 		g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 
 		levelRenderer.setGraphics((Graphics2D) g);
-		gameGui.setGraphics((Graphics2D) g);
-		debugGui.setGraphics((Graphics2D) g);
+
+		for (GuiBase gb : GUIs)
+			gb.setGraphics((Graphics2D) g);
 
 		g.setColor(Color.BLACK);
 		g.fillRect(0, 0, WIDTH * SCALE, HEIGHT * SCALE);
 
 		if (game.isPlaying()) {
 			levelRenderer.render();
-			gameGui.render();
 		}
-
-		if (game.isDebug()) {
-			debugGui.render();
+		
+		for (GuiBase gb : GUIs) {
+			gb.render();
 		}
 
 		g.setColor(Color.WHITE);

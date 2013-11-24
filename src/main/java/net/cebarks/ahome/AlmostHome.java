@@ -185,7 +185,7 @@ public class AlmostHome extends Canvas implements Runnable {
 			level.getPlayer().xToMove += 2 * level.getPlayer().moveSpeed;
 
 		for (InputHandler ih : getInputHandlers()) {
-			ih.handleInput();
+			ih.handleInput(input);
 		}
 	}
 

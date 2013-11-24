@@ -17,10 +17,6 @@ public class GuiInGame extends GuiBase {
 
 	@Override
 	public void render() {
-		int halfHearts = level.getPlayer().getHealth() % 2;
-		int fullHearts = level.getPlayer().getHealth() - halfHearts;
 		
-		//g.drawString("hH: " + halfHearts, 10, 15);
-		//g.drawString("fH: " + fullHearts, 10, 30);
 	}
 }
