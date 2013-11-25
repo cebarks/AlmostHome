@@ -4,8 +4,6 @@ import java.awt.Color;
 import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
 
-import static net.cebarks.ahome.AlmostHome.SCALE;
-
 import net.cebarks.ahome.level.Level;
 import net.cebarks.ahome.util.Input;
 import net.cebarks.ahome.util.InputHandler;

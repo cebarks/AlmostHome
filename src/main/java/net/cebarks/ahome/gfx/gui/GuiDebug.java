@@ -22,7 +22,7 @@ public class GuiDebug extends GuiBase {
 
 			g.drawString("FPS: " + a.getFPS() + ", TPS: " + a.getTPS(), 10, 20);
 			g.drawString("RL: " + p.x + ", " + p.y, 10, 35);
-			g.drawString("Mem: " + usedMemory + "mb", 10, 50);
+			g.drawString("Mem: " + usedMemory + "mb / " + Runtime.getRuntime().maxMemory() / 1048576 + "mb", 10, 50);
 			g.drawString("TILE: " + level.getCurrentLevelTile().gridX + ", " + level.getCurrentLevelTile().gridY, 10, 65);
 			g.drawString("B: " + level.getCurrentLevelTile().getPopulator(), 10, 80);
 			g.drawString("E: " + level.getEntites().size(), 10, 95);
