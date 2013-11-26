@@ -7,7 +7,6 @@ import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 
 import javax.swing.JFrame;
-import javax.swing.JOptionPane;
 
 import net.cebarks.ahome.gfx.RenderEngine;
 import net.cebarks.ahome.gfx.SpriteSheet;
@@ -88,8 +87,6 @@ public class AlmostHome extends Canvas implements Runnable {
 	}
 
 	public void run() {
-		debug = Boolean.parseBoolean(JOptionPane.showInputDialog("Debug mode?"));
-
 		long t = System.currentTimeMillis();
 
 		level = new Level(this, "anten");
@@ -250,6 +247,13 @@ public class AlmostHome extends Canvas implements Runnable {
 	}
 
 	public static void main(String[] args) {
-		new AlmostHome().start();
+		AlmostHome ah = new AlmostHome();
+		ah.start();
+
+		for (String s : args) {
+			if (s.equalsIgnoreCase("--debug")) {
+				ah.setDebug(true);
+			}
+		}
 	}
 }
