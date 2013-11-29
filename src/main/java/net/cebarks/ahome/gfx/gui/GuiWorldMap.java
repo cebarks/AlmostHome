@@ -43,8 +43,10 @@ public class GuiWorldMap extends GuiBase implements InputHandler {
 
 	public void handleInput(Input input) {
 		if (input.isKeyDown(KeyEvent.VK_M)) {
-			shouldRender = !shouldRender;
-			System.out.println("Map!");
+			shouldRender = true;
+		}
+		if (input.isKeyDown(KeyEvent.VK_ESCAPE) && shouldRender) {
+			shouldRender = false;
 		}
 	}
 }

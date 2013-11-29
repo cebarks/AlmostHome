@@ -23,9 +23,7 @@ public class GuiBase {
 		this.game = level.getGame();
 	}
 	
-	public void render() {
-		
-	}
+	public void render() {}
 	
 	public void setGraphics(Graphics2D g2) {
 		this.g = g2;
