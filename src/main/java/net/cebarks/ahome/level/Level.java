@@ -57,7 +57,11 @@ public class Level {
 	}
 
 	public void generate() {
-		WeightedRandomizer<LTPopulator> wr = new WeightedRandomizer<LTPopulator>(random, new Object[] { plains, 8, pond, 1, swamp, 1 });
+		WeightedRandomizer<LTPopulator> wr = new WeightedRandomizer<LTPopulator>(random, new Object[] { 
+				plains, 8,
+				pond, 1, 
+				swamp, 1 
+		 });
 
 		for (int x = 0; x < levelTiles.length; x++) {
 			for (int y = 0; y < levelTiles.length; y++) {
