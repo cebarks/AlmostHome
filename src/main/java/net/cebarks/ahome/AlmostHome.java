@@ -14,7 +14,6 @@ import net.cebarks.ahome.level.Level;
 import net.cebarks.ahome.util.Input;
 import net.cebarks.ahome.util.InputHandler;
 import net.cebarks.ahome.util.Options;
-import net.cebarks.ahome.util.Version;
 
 public class AlmostHome extends Canvas implements Runnable {
 
@@ -39,7 +38,6 @@ public class AlmostHome extends Canvas implements Runnable {
 
 	@SuppressWarnings(value = "unused")
 	private Options options = new Options(AlmostHome.class.getResource("config.txt").getPath());
-	private Version version = new Version(AlmostHome.class.getResource("version.txt").getPath());
 
 	private boolean running;
 	private boolean playing;
@@ -58,7 +56,7 @@ public class AlmostHome extends Canvas implements Runnable {
 		setMaximumSize(perfDim);
 		setPreferredSize(perfDim);
 
-		frame = new JFrame(NAME + " " + version.getVersion());
+		frame = new JFrame(NAME);
 
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setLayout(new BorderLayout());
