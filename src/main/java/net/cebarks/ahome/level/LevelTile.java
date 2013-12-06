@@ -16,8 +16,7 @@ public class LevelTile {
 	private Random random;
 
 	private Tile[][] tiles = new Tile[16][16];
-	private boolean[][] solidTiles = new boolean[16][16];
-	
+
 	private Level level;
 	private LTPopulator levelPopulator;
 
@@ -37,7 +36,7 @@ public class LevelTile {
 			westEdge = true;
 
 		this.random = random;
-		
+
 		levelPopulator.generate(tiles, this.random);
 	}
 
